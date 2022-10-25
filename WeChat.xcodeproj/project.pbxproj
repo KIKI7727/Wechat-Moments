@@ -20,6 +20,8 @@
 		8A88309C2906E178003228D6 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88309B2906E178003228D6 /* ProfileHeaderView.swift */; };
 		8A88309F2907A996003228D6 /* ExplorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A88309E2907A996003228D6 /* ExplorationView.swift */; };
 		8A8830A32907AAE7003228D6 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8830A22907AAE7003228D6 /* TimelineView.swift */; };
+		8A8830A52907AC22003228D6 /* TimelineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8830A42907AC21003228D6 /* TimelineHeaderView.swift */; };
+		8A8830A72907AE85003228D6 /* TimelineContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8830A62907AE85003228D6 /* TimelineContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		8A88309B2906E178003228D6 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		8A88309E2907A996003228D6 /* ExplorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorationView.swift; sourceTree = "<group>"; };
 		8A8830A22907AAE7003228D6 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		8A8830A42907AC21003228D6 /* TimelineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineHeaderView.swift; sourceTree = "<group>"; };
+		8A8830A62907AE85003228D6 /* TimelineContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				8A8830A22907AAE7003228D6 /* TimelineView.swift */,
+				8A8830A42907AC21003228D6 /* TimelineHeaderView.swift */,
+				8A8830A62907AE85003228D6 /* TimelineContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,7 +368,9 @@
 				8A8830912906DD60003228D6 /* ListItemModel.swift in Sources */,
 				8A8830862906D3D6003228D6 /* HomeView.swift in Sources */,
 				8A88309F2907A996003228D6 /* ExplorationView.swift in Sources */,
+				8A8830A72907AE85003228D6 /* TimelineContentView.swift in Sources */,
 				8A8830A32907AAE7003228D6 /* TimelineView.swift in Sources */,
+				8A8830A52907AC22003228D6 /* TimelineHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

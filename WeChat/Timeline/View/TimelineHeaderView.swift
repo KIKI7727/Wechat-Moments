@@ -1,0 +1,46 @@
+//
+//  TimelineHeaderView.swift
+//  WeChat
+//
+//  Created by cai dongyu on 2022/10/25.
+//
+
+import SwiftUI
+
+struct TimelineHeaderView: View {
+    private enum Contants {
+        static let profileImageSize: CGSize = .init(width: 70, height: 70)
+        static let nickAndProfileOffsetX: CGFloat = -15
+        static let nickAndProfileOffsetY: CGFloat = 15
+        static let contentBottoPadding: CGFloat = 20
+    }
+    
+    let nickname: String
+    let profileImageName: String
+    let backgroundImageName: String
+    
+    var body: some View {
+        ZStack(alignment: .bottomTrailing) {
+            Image(backgroundImageName)
+                .resizable()
+                .scaledToFill()
+            HStack {
+                Text(nickname)
+                    .foregroundColor(.white)
+                    .bold()
+                Image(profileImageName)
+                    .resizable()
+                    .frame(width: Contants.profileImageSize.width,
+                           height: Contants.profileImageSize.height)
+            }
+            .offset(x: Contants.nickAndProfileOffsetX, y: Contants.nickAndProfileOffsetY)
+        }
+        .padding(.bottom, Contants.contentBottoPadding)
+    }
+}
+
+struct TimelineHeaderView_Previews: PreviewProvider {
+    static var previews: some View {
+        TimelineHeaderView(nickname: "", profileImageName: "images", backgroundImageName: "background")
+    }
+}

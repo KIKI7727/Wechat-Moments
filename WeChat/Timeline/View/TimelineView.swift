@@ -9,10 +9,17 @@ import SwiftUI
 
 struct TimelineView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            TimelineHeaderView(nickname: "", profileImageName: "images", backgroundImageName: "background")
+                .listRowInsets(EdgeInsets())
+                .listRowSeparator(.hidden)
+            TimelineContentView()
+                .listRowSeparator(.hidden)
+        }
+        .listStyle(.plain)
+        .navigationBarTitle("朋友圈")
     }
 }
-
 struct TimelineView_Previews: PreviewProvider {
     static var previews: some View {
         TimelineView()
