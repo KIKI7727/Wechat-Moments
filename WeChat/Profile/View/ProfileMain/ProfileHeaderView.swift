@@ -9,20 +9,26 @@ import SwiftUI
 import Foundation
 
 struct ProfileHeaderView: View {
+    @StateObject var ProfileHeaderViewModel: ProfileHeaderViewModel = .init()
+    
     var body: some View {
         VStack() {
             HStack {
-                Image("images")
-                    .resizable()
+                AsyncImage(url: URL(string: ProfileHeaderViewModel.avatar),content:{ pahse in
+                    if let image = pahse.image {
+                        image
+                            .resizable()
+                    }
+                })
                     .frame(width: 70,height: 70)
                     .aspectRatio(contentMode: .fit)
                 VStack(alignment: .leading) {
-                    Text("SleepRabbit")
+                    Text(ProfileHeaderViewModel.nickName)
                         .lineLimit(2)
                         .font(.title)
                         .foregroundColor(.black)
                     HStack {
-                        Text("微信号:weixinhao")
+                        Text(ProfileHeaderViewModel.userName)
                             .lineLimit(1)
                             .font(.title3)
                             .foregroundColor(.gray)

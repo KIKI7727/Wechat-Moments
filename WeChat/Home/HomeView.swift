@@ -22,12 +22,12 @@ struct HomeView: View {
                     Label("通讯录", systemImage: "phone.fill")
                 }
                 .tag(HomeTab.addressList)
-            Text("")
+            ExplorationView()
                 .tabItem {
                     Label("发现", systemImage: "safari.fill")
                 }
                 .tag(HomeTab.exploration)
-            Text("")
+            ProfileView()
                 .tabItem {
                     Label("我", systemImage: "person.fill")
                 }

@@ -12,30 +12,41 @@ struct TimelineHeaderView: View {
         static let profileImageSize: CGSize = .init(width: 70, height: 70)
         static let nickAndProfileOffsetX: CGFloat = -15
         static let nickAndProfileOffsetY: CGFloat = 15
-        static let contentBottoPadding: CGFloat = 20
+        static let contentBottomPadding: CGFloat = 20
     }
     
     let nickname: String
     let profileImageName: String
     let backgroundImageName: String
     
+    @StateObject private var profileHeaderViewModel: ProfileHeaderViewModel = .init()
+    // 了解stateobeject 和ob的区别
+    
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            Image(backgroundImageName)
-                .resizable()
-                .scaledToFill()
+            AsyncImage(url: URL(string: profileHeaderViewModel.profileHeaderUrl),content:{ pahse in
+                if let image = pahse.image {
+                    image
+                        .resizable()
+                        .scaledToFill()
+                }
+            })
             HStack {
-                Text(nickname)
+                Text(profileHeaderViewModel.nickName)
                     .foregroundColor(.white)
                     .bold()
-                Image(profileImageName)
-                    .resizable()
-                    .frame(width: Contants.profileImageSize.width,
-                           height: Contants.profileImageSize.height)
+                AsyncImage(url: URL(string: profileHeaderViewModel.avatar),content:{ pahse in
+                    if let image = pahse.image {
+                        image
+                            .resizable()
+                    }
+                })
+                .frame(width: Contants.profileImageSize.width,
+                       height: Contants.profileImageSize.height)
             }
             .offset(x: Contants.nickAndProfileOffsetX, y: Contants.nickAndProfileOffsetY)
         }
-        .padding(.bottom, Contants.contentBottoPadding)
+        .padding(.bottom, Contants.contentBottomPadding)
     }
 }
 
