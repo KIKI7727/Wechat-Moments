@@ -11,7 +11,7 @@ struct TimelineHeaderView: View {
     private enum Contants {
         static let profileImageSize: CGSize = .init(width: 70, height: 70)
         static let nickAndProfileOffsetX: CGFloat = -15
-        static let nickAndProfileOffsetY: CGFloat = 15
+        static let nickAndProfileOffsetY: CGFloat = 10
         static let contentBottomPadding: CGFloat = 20
     }
     
@@ -20,7 +20,6 @@ struct TimelineHeaderView: View {
     let backgroundImageName: String
     
     @StateObject private var profileHeaderViewModel: ProfileHeaderViewModel = .init()
-    // 了解stateobeject 和ob的区别
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -28,9 +27,13 @@ struct TimelineHeaderView: View {
                 if let image = pahse.image {
                     image
                         .resizable()
-                        .scaledToFill()
+                        .scaledToFit()
                 }
             })
+            .frame(width: UIScreen.main.bounds.width)
+            .aspectRatio(contentMode: .fit)
+            .padding(.bottom)
+            
             HStack {
                 Text(profileHeaderViewModel.nickName)
                     .foregroundColor(.white)

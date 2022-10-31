@@ -12,7 +12,6 @@ class ProfileHeaderViewModel: ObservableObject{
     @Published var profileHeaderUrl: String = ""
     @Published var nickName: String = ""
     @Published var userName: String = ""
-    @Published var remoteImageData: Data?
     @Published var avatar: String = ""
     
     private var subscription: Set<AnyCancellable> = []
