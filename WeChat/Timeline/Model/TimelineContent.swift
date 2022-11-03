@@ -33,3 +33,10 @@ struct Comments: Codable {
     let content: String
     let sender: Sender
 }
+
+enum LoadingState: Int {
+    case Loading = 0
+    case LoadMore = 1
+    case LoadComplete = 2
+}
+

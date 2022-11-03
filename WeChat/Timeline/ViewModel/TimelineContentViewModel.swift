@@ -11,6 +11,13 @@ import Combine
     
 class TimelineContentViewModel: ObservableObject{
     @Published var timeLinecontent: [Moment] = []
+    @Published var errorMessage: String?
+    @Published var isLoading: LoadingState = .Loading
+
+    var loadMoreSubject = CurrentValueSubject<Void, Error>(())
+    var refreshSubject = PassthroughSubject<Void, Never>()
+    var cancellables = Set<AnyCancellable>()
+    let maxRow: Int = 5
     
     private var subscription: Set<AnyCancellable> = []
     
@@ -23,8 +30,6 @@ class TimelineContentViewModel: ObservableObject{
             }
             .store(in: &subscription)
     }
-    
-    
     
     func getMyTimelineContent() -> AnyPublisher <Array<Moment>, Error> {
         return URLSession.shared.dataTaskPublisher(for: URL(string: "https://emagrorrim.github.io/mock-api/moments.json")!)

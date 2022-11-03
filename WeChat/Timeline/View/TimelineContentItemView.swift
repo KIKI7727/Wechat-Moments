@@ -7,7 +7,7 @@
 
 import SwiftUI
 
- enum Contants {
+enum Contants {
     static let imageSize: CGSize = .init(width: 50, height: 50)
     static let nickSpacing: CGFloat = 10
     static let singlePhotoMaxWidth: CGFloat = 200
@@ -17,6 +17,9 @@ import SwiftUI
 struct TimelineContentItemView: View {
     @StateObject var vm: TimelineContentItemViewModel
     @State var isShow: Bool = false
+    @State var isLikeArrayShow: Bool = false
+    @State var commentText: String = ""
+    @State var isCommentShow = false
     
     init(_ moment: Moment) {
         _vm = StateObject(wrappedValue: TimelineContentItemViewModel(moment))
@@ -24,15 +27,15 @@ struct TimelineContentItemView: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            AsyncImage(url: URL(string: vm.moment.sender?.avatar ?? ""), content: { phase in
-                if let image = phase.image {
-                    image
-                        .resizable()
-                        .frame(width: Contants.imageSize.width, height: Contants.imageSize.height)
-                } else {
-                    ProgressView()
-                }
-            })
+            ZStack {
+                AsyncImage(url: URL(string: vm.moment.sender?.avatar ?? ""), content: { phase in
+                    if let image = phase.image {
+                        image
+                            .resizable()
+                            .frame(width: Contants.imageSize.width, height: Contants.imageSize.height)
+                    }
+                })
+            }
             
             VStack(alignment: .leading, spacing: 0) {
                 if let nick = vm.moment.sender?.nick {
@@ -42,23 +45,35 @@ struct TimelineContentItemView: View {
                 if let cont = vm.moment.content {
                     Text(cont)
                         .fontWeight(.light)
+                        .padding(.vertical, 2)
                 }
+                
                 if let images = vm.moment.images{
                     Group {
                         if images.count == 4 {
-                            let columns = [GridItem(.flexible(minimum: 80)), GridItem(.flexible(minimum: 80))]
-                            LazyVGrid(columns: columns, spacing: 10) {
+                            
+                            let columns = [
+                                GridItem(.fixed(80), spacing: 2),
+                                GridItem(.fixed(80), spacing: 2)
+                            ]
+                            LazyVGrid(columns: columns, alignment: .leading, spacing: 2) {
                                 ForEach(Array(images.enumerated()), id: \.offset) { index, element in
                                     imageView(element.url)
                                 }
-                            }
+                            }.padding(.vertical)
                         } else {
-                            let columns = [GridItem(spacing: 15), GridItem(spacing: 15), GridItem(spacing: 15)]
-                            LazyVGrid(columns: columns,alignment: .leading, spacing: 10) {
+                            
+                            let columns = [
+                                GridItem(.fixed(80), spacing: 2),
+                                GridItem(.fixed(80), spacing: 2),
+                                GridItem(.fixed(80), spacing: 2),
+                            ]
+                            
+                            LazyVGrid(columns: columns,alignment: .leading, spacing: 2) {
                                 ForEach(Array(images.enumerated()), id: \.offset) { index, element in
                                     imageView(element.url)
                                 }
-                            }
+                            }.padding(.vertical)
                         }
                     }
                 }
@@ -66,25 +81,36 @@ struct TimelineContentItemView: View {
             
         }
         HStack {
+            if isLikeArrayShow == true {
+                HStack {
+                    Image(systemName: "heart")
+                    Text("Huan Huan").lineLimit(1)
+                    Spacer()
+                }.background(.gray).padding(.leading,50)
+            }
+            
             Spacer()
+            
             if isShow == true{
                 HStack{
                     Button(action: {
                         self.isShow = false
+                        self.isLikeArrayShow = !self.isLikeArrayShow
                     }, label: {
                         HStack{
                             Image(systemName: "heart").resizable().frame(width: 20,height: 20).foregroundColor(.white)
-                            Text("点赞").foregroundColor(Color.white)
+                            Text("点赞").foregroundColor(Color.white).lineLimit(1).fixedSize()
                         }
                     })
                     .buttonStyle(BorderlessButtonStyle())
                     Text("|")
                     Button(action: {
                         self.isShow = false
+                        self.isCommentShow = !self.isCommentShow
                     }, label: {
                         HStack{
                             Image(systemName: "bubble.left").resizable().frame(width: 20,height: 20).foregroundColor(.white)
-                            Text("评论").foregroundColor(Color.white)
+                            Text("评论").foregroundColor(Color.white).lineLimit(1).fixedSize()
                         }
                     })
                     .buttonStyle(BorderlessButtonStyle())
@@ -101,6 +127,9 @@ struct TimelineContentItemView: View {
             })
             .buttonStyle(BorderlessButtonStyle())
         }
+        if isCommentShow == true {
+            TextField("评论...", text: $commentText)
+        }
     }
 }
 
@@ -111,10 +140,10 @@ extension TimelineContentItemView {
             url: URL(string: url)) { phase in
                 switch phase {
                 case .empty:
-                    ProgressView()
-                        .frame(width: 80, height: 80)
+                    Text("")
                 case .success(let image):
                     image.resizable()
+                      //  .aspectRatio(contentMode: .fill)
                         .frame(width: 80, height: 80)
                 case .failure:
                     Image(systemName: "photo")
@@ -126,7 +155,7 @@ extension TimelineContentItemView {
                 }
             }
     }
-  //过滤错误数据
+  
     func showLineImage(_ imageArray: [String]) -> some View {
         HStack(spacing: 0) {
             ForEach(imageArray, id: \.self) { image in
