@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1E8624291354EC00747EFB /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E8623291354EC00747EFB /* LoadingIndicator.swift */; };
 		8A8830572906D1F5003228D6 /* WeChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8830562906D1F5003228D6 /* WeChatApp.swift */; };
 		8A88305B2906D1F6003228D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A88305A2906D1F6003228D6 /* Assets.xcassets */; };
 		8A88305E2906D1F6003228D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A88305D2906D1F6003228D6 /* Preview Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8A1E8623291354EC00747EFB /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		8A8830532906D1F5003228D6 /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8830562906D1F5003228D6 /* WeChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatApp.swift; sourceTree = "<group>"; };
 		8A88305A2906D1F6003228D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				8A8830A22907AAE7003228D6 /* TimelineView.swift */,
 				8A8830A42907AC21003228D6 /* TimelineHeaderView.swift */,
 				8A8830AF29092BE0003228D6 /* TimelineContentItemView.swift */,
+				8A1E8623291354EC00747EFB /* LoadingIndicator.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				8A88309C2906E178003228D6 /* ProfileHeaderView.swift in Sources */,
 				8A88308F2906DD43003228D6 /* Profile.swift in Sources */,
 				8A8830962906DE1C003228D6 /* ProfileView.swift in Sources */,
+				8A1E8624291354EC00747EFB /* LoadingIndicator.swift in Sources */,
 				8A8830862906D3D6003228D6 /* HomeView.swift in Sources */,
 				8AE62C5A290A22EF00444CDC /* TimelineContent.swift in Sources */,
 				8A88309F2907A996003228D6 /* ExplorationView.swift in Sources */,
@@ -489,7 +493,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -543,7 +547,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -561,6 +565,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeChat/Preview Content\"";
+				DEVELOPMENT_TEAM = 6DT5BM7VAW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -568,6 +573,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -589,6 +595,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WeChat/Preview Content\"";
+				DEVELOPMENT_TEAM = 6DT5BM7VAW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -596,6 +603,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

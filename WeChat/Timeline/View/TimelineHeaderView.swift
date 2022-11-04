@@ -23,13 +23,27 @@ struct TimelineHeaderView: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            AsyncImage(url: URL(string: profileHeaderViewModel.profileHeaderUrl),content:{ pahse in
+           /* AsyncImage(url: URL(string: profileHeaderViewModel.profileHeaderUrl),content:{ pahse in
                 if let image = pahse.image {
                     image
                         .resizable()
                         .scaledToFit()
                 }
-            })
+            })*/
+            AsyncImage(url: URL(string: profileHeaderViewModel.profileHeaderUrl)) { image in
+                 if let image = image {
+                     image
+                         .resizable()
+                         .aspectRatio(contentMode: .fill)
+                        // .scaledToFit()
+                 } else {
+                     Color.gray.opacity(0.2)
+                 }
+            } placeholder: {
+                Color.gray.opacity(0.2)
+                .frame(width: UIScreen.main.bounds.width)
+                
+            }
             .frame(width: UIScreen.main.bounds.width)
             .aspectRatio(contentMode: .fit)
             .padding(.bottom)

@@ -18,6 +18,14 @@ struct Moment: Codable, Identifiable {
     enum CodingKeys: CodingKey {
         case content, images, sender, comments
     }
+    
+    func isValid() -> Bool {
+        if content == nil && images == nil && sender == nil && comments == nil {
+            return false
+        } else {
+            return true
+        }
+    }
 }
 
 struct Images: Codable {
