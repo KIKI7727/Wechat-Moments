@@ -20,7 +20,7 @@ struct Moment: Codable, Identifiable {
     }
     
     func isValid() -> Bool {
-        if content == nil && images == nil && sender == nil && comments == nil {
+        if content == nil && images == nil {
             return false
         } else {
             return true
@@ -38,6 +38,7 @@ struct Sender: Codable {
     let avatar: String
 }
 struct Comments: Codable {
+    //var id = UUID()
     let content: String
     let sender: Sender
 }

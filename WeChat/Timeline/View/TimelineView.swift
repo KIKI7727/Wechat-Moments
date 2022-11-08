@@ -8,21 +8,24 @@
 import SwiftUI
 
 struct TimelineView: View {
-@StateObject private var viewModel: TimelineContentViewModel = .init()
+    @StateObject private var viewModel: TimelineContentViewModel = .init()
+    @State var commitList: [String] = []
+    @State var isShow: Bool = false
+    @State var isLikeArrayShow: Bool = false
     
     var body: some View {
+        HStack{
             List {
                 TimelineHeaderView(nickname: "", profileImageName: "images", backgroundImageName: "background")
                     .listRowInsets(EdgeInsets())
                     .listRowSeparator(.hidden)
                 if viewModel.timeLinecontent.count > 0 {
                     ForEach( Array(viewModel.timeLinecontent[0..<viewModel.index].enumerated()), id: \.offset) { index, data in
-                        TimelineContentItemView(data)
+                        TimelineContentItemView(isShow: $isShow, moment: data)
                             .padding(.vertical, 15)
                             .onAppear {
-                                // 判断是否显示到最后的cell
                                 viewModel.isLoadingMore(index)
-                               
+    
                             }
                     }
                     .listRowSeparator(.hidden)
@@ -35,13 +38,14 @@ struct TimelineView: View {
             .listStyle(.plain)
             .navigationBarTitle("朋友圈")
             .refreshable {
-                // 上拉刷新
                 viewModel.refreshSubject.send()
             }
         }
+//        .inputDialog(isPresented: $isShow, isLike: $isLikeArrayShow, action: { item in
+//            if (!item.isEmpty){
+//                commitList.append(item)
+//                print(commitList)
+//            }
+//        })
     }
-struct TimelineView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimelineView()
     }
-}

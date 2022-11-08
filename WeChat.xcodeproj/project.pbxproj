@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8A1E8624291354EC00747EFB /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E8623291354EC00747EFB /* LoadingIndicator.swift */; };
+		8A32B86B2918EE1F003B4FE6 /* InputDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32B86A2918EE1F003B4FE6 /* InputDialogView.swift */; };
+		8A32B86D2918F3DF003B4FE6 /* InputDialogModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A32B86C2918F3DF003B4FE6 /* InputDialogModifier.swift */; };
 		8A8830572906D1F5003228D6 /* WeChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8830562906D1F5003228D6 /* WeChatApp.swift */; };
 		8A88305B2906D1F6003228D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A88305A2906D1F6003228D6 /* Assets.xcassets */; };
 		8A88305E2906D1F6003228D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A88305D2906D1F6003228D6 /* Preview Assets.xcassets */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		8A1E8623291354EC00747EFB /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		8A32B86A2918EE1F003B4FE6 /* InputDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDialogView.swift; sourceTree = "<group>"; };
+		8A32B86C2918F3DF003B4FE6 /* InputDialogModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDialogModifier.swift; sourceTree = "<group>"; };
 		8A8830532906D1F5003228D6 /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8830562906D1F5003228D6 /* WeChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatApp.swift; sourceTree = "<group>"; };
 		8A88305A2906D1F6003228D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A32B86F2919444E003B4FE6 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				8A32B86C2918F3DF003B4FE6 /* InputDialogModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
 		8A88304A2906D1F4003228D6 = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +228,7 @@
 		8A8830A02907AAC5003228D6 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				8A32B86F2919444E003B4FE6 /* Modifier */,
 				8AE62C58290A22D500444CDC /* Model */,
 				8A8830AC290914C0003228D6 /* ViewModel */,
 				8A8830A12907AAD6003228D6 /* View */,
@@ -229,6 +242,7 @@
 				8A8830A22907AAE7003228D6 /* TimelineView.swift */,
 				8A8830A42907AC21003228D6 /* TimelineHeaderView.swift */,
 				8A8830AF29092BE0003228D6 /* TimelineContentItemView.swift */,
+				8A32B86A2918EE1F003B4FE6 /* InputDialogView.swift */,
 				8A1E8623291354EC00747EFB /* LoadingIndicator.swift */,
 			);
 			path = View;
@@ -397,12 +411,14 @@
 				8A8830B029092BE0003228D6 /* TimelineContentItemView.swift in Sources */,
 				8A8830572906D1F5003228D6 /* WeChatApp.swift in Sources */,
 				8A88309C2906E178003228D6 /* ProfileHeaderView.swift in Sources */,
+				8A32B86D2918F3DF003B4FE6 /* InputDialogModifier.swift in Sources */,
 				8A88308F2906DD43003228D6 /* Profile.swift in Sources */,
 				8A8830962906DE1C003228D6 /* ProfileView.swift in Sources */,
 				8A1E8624291354EC00747EFB /* LoadingIndicator.swift in Sources */,
 				8A8830862906D3D6003228D6 /* HomeView.swift in Sources */,
 				8AE62C5A290A22EF00444CDC /* TimelineContent.swift in Sources */,
 				8A88309F2907A996003228D6 /* ExplorationView.swift in Sources */,
+				8A32B86B2918EE1F003B4FE6 /* InputDialogView.swift in Sources */,
 				8A8830AB2907BB2E003228D6 /* ProfileHeaderViewModel.swift in Sources */,
 				8A8830AE2909151C003228D6 /* TimelineContentViewModel.swift in Sources */,
 				8A8830A32907AAE7003228D6 /* TimelineView.swift in Sources */,
