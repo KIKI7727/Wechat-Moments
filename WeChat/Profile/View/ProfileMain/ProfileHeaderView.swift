@@ -9,37 +9,38 @@ import SwiftUI
 import Foundation
 
 struct ProfileHeaderView: View {
-    @StateObject var ProfileHeaderViewModel: ProfileHeaderViewModel = .init()
-    
-    var body: some View {
-        VStack() {
-            HStack {
-                AsyncImage(url: URL(string: ProfileHeaderViewModel.avatar),content:{ pahse in
-                    if let image = pahse.image {
-                        image
-                            .resizable()
-                    }
-                })
-                    .frame(width: 70,height: 70)
-                    .aspectRatio(contentMode: .fit)
-                VStack(alignment: .leading) {
-                    Text(ProfileHeaderViewModel.nickName)
-                        .lineLimit(2)
-                        .font(.title)
-                        .foregroundColor(.black)
-                    HStack {
-                        Text(ProfileHeaderViewModel.userName)
-                            .lineLimit(1)
-                            .font(.title3)
-                            .foregroundColor(.gray)
-                    }
-                }
-            }
+  @StateObject var ProfileHeaderViewModel: ProfileHeaderViewModel = .init()
+  
+  var body: some View {
+    VStack() {
+      HStack {
+        /* AsyncImage(url: URL(string: ProfileHeaderViewModel.avatar),content:{ pahse in
+         if let image = pahse.image {
+         image
+         .resizable()
+         }
+         })*/
+        UrlImageView(urlString: ProfileHeaderViewModel.avatar)
+          .frame(width: 70,height: 70)
+          .aspectRatio(contentMode: .fit)
+        VStack(alignment: .leading) {
+          Text(ProfileHeaderViewModel.nickName)
+            .lineLimit(2)
+            .font(.title)
+            .foregroundColor(.black)
+          HStack {
+            Text(ProfileHeaderViewModel.userName)
+              .lineLimit(1)
+              .font(.title3)
+              .foregroundColor(.gray)
+          }
         }
+      }
     }
+  }
 }
 struct ProfileHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileHeaderView()
-    }
+  static var previews: some View {
+    ProfileHeaderView()
+  }
 }

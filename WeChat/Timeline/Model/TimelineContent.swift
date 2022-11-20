@@ -12,7 +12,7 @@ struct Moment: Codable, Identifiable {
     let content: String?
     let images: [Images]?
     let sender: Sender?
-    let comments: [Comments]?
+    let comments: [Comments]?//不加s
     
     
     enum CodingKeys: CodingKey {
@@ -38,7 +38,6 @@ struct Sender: Codable {
     let avatar: String
 }
 struct Comments: Codable {
-    //var id = UUID()
     let content: String
     let sender: Sender
 }

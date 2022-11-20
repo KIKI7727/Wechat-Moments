@@ -24,7 +24,7 @@ class TimelineContentViewModel: ObservableObject{
     
     init(){
         self.getMyTimelineContent()
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink { _ in } receiveValue: { [weak self] value in
                 self?.timeLinecontent = value.filter { $0.isValid() }
                 
