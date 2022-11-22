@@ -10,7 +10,7 @@ import SwiftUI
 struct UrlImageView: View {
   @ObservedObject var urlImageViewModel: UrlImageViewModel
 
-  init(urlString: String?) {
+  init(urlString: String) {
     urlImageViewModel = UrlImageViewModel(urlString: urlString)
   }
 
@@ -18,12 +18,15 @@ struct UrlImageView: View {
     if let image = urlImageViewModel.image {
       Image(uiImage: image)
         .resizable()
-    } 
+    } else {
+      Image("gray")
+        .resizable()
+    }
   }
 }
 
 struct UrlImageView_Previews: PreviewProvider {
   static var previews: some View {
-    UrlImageView(urlString: nil)
+    UrlImageView(urlString: "")
   }
 }

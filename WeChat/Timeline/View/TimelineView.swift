@@ -37,7 +37,6 @@ struct TimelineView: View {
       .navigationBarTitle("朋友圈")
       .refreshable {
         viewModel.refreshSubject.send()
-
       }
     }
   }

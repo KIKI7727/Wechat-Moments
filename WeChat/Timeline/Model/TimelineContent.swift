@@ -8,24 +8,23 @@
 import Foundation
 
 struct Moment: Codable, Identifiable {
-    var id = UUID()
-    let content: String?
-    let images: [Images]?
-    let sender: Sender?
-    let comments: [Comments]?//不加s
-    
-    
-    enum CodingKeys: CodingKey {
-        case content, images, sender, comments
+  var id = UUID()
+  let content: String?
+  let images: [Images]?
+  let sender: Sender?
+  let comments: [Comments]?
+
+  enum CodingKeys: CodingKey {
+    case content, images, sender, comments
+  }
+
+  func isValid() -> Bool {
+    if content == nil && images == nil {
+      return false
+    } else {
+      return true
     }
-    
-    func isValid() -> Bool {
-        if content == nil && images == nil {
-            return false
-        } else {
-            return true
-        }
-    }
+  }
 }
 
 struct Images: Codable {
@@ -33,18 +32,18 @@ struct Images: Codable {
 }
 
 struct Sender: Codable {
-    let username: String
-    let nick: String
-    let avatar: String
+  let username: String
+  let nick: String
+  let avatar: String
 }
 struct Comments: Codable {
-    let content: String
-    let sender: Sender
+  let content: String
+  let sender: Sender
 }
 
 enum LoadingState: Int {
-    case Loading = 0
-    case LoadMore = 1
-    case LoadComplete = 2
+  case Loading = 0
+  case LoadMore = 1
+  case LoadComplete = 2
 }
 

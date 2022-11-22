@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct TimelineHeaderView: View {
   private enum Contants {
     static let profileImageSize: CGSize = .init(width: 70, height: 70)
